@@ -1,7 +1,8 @@
 <template>
   <el-menu 
-    default-active="2"
+    default-active="/index/main"
     class="el-menu-vertical-demo"
+    router
     :collapse="isCollapse"
     @open="handleOpen"
     @close="handleClose"
@@ -24,17 +25,22 @@
         <el-menu-item index="1-4-1">项目1</el-menu-item>
       </el-sub-menu>
     </el-sub-menu>
-    <el-menu-item index="2">
-      <el-icon><icon-menu /></el-icon>
-      <template #title>Navigator Two</template>
+    <el-menu-item index="/index/main" >
+      <el-icon>
+        <House />
+      </el-icon>
+      <template #title>Main</template>
     </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <el-icon><document /></el-icon>
-      <template #title>Navigator Three</template>
+    <el-menu-item index="/index/doc">
+      <el-icon><Document /></el-icon>
+      <template #title>
+        <el-icon><QuestionFilled /></el-icon>
+        <span style="margin-left: 8px;">Document</span>
+      </template>
     </el-menu-item>
-    <el-menu-item index="4">
-      <el-icon><setting /></el-icon>
-      <template #title>Navigator Four</template>
+    <el-menu-item index="/index/setting">
+      <el-icon><IconSetting /></el-icon>
+      <template #title>Setting</template>
     </el-menu-item>
   </el-menu>
 </template>
@@ -42,18 +48,21 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import {
+  House,
   Location,
+  Help,
+  QuestionFilled,
   Document,
   Menu as IconMenu,
-  Setting,
+  Setting as IconSetting,
 } from '@element-plus/icons-vue'
 
 const isCollapse = ref(true)
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  console.log("open",key, keyPath)
 }
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  console.log("close",key, keyPath)
 }
 </script>
 

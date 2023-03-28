@@ -5,7 +5,8 @@
       <BaseSide />
       <div class="right-area">
 
-        <TableTest name="hanbindsg" msg="msg content" />
+        <RouterView />
+        <!-- <TableTest name="hanbindsg" msg="msg content" /> -->
 
         <div class="bottom-layer pt-2">
           <a>欢迎</a>
