@@ -1,5 +1,5 @@
 <template>
-  <el-menu
+  <el-menu 
     default-active="2"
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
@@ -57,3 +57,8 @@ const handleClose = (key: string, keyPath: string[]) => {
 }
 </script>
 
+<style>
+.el-menu-vertical-demo{
+  width: 64px;
+}
+</style>
