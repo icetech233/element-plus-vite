@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es2022",
-    "useDefineForClassFields": false,
-    "module": "es2022",
-    "moduleResolution": "nodenext",
+    "target": "es2022",  // esnext
+    "useDefineForClassFields": true, // 必须是true 不然报错
+    "module": "es2022", // esnext
+    "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,

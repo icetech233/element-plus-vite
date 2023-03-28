@@ -32,11 +32,11 @@
   </div>
 
   <p>For example, hanbindsg writrin.</p>
-
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+
+import { ref, onMounted } from "vue"
 import { ElMessage } from 'element-plus'
 import axios, {isCancel, AxiosError,AxiosResponse,AxiosRequestConfig} from 'axios'
 
@@ -92,6 +92,25 @@ const toastctx = ref("通知按钮");
 const count = ref(0);
 //const input = ref("element-plus");
 
+
+  // {
+  //   let {status,data } = await axios.get('http://127.0.0.1:8081/domains/describe');
+  //   console.log("\nstatus:",status,"\ndata:\n",data)
+  // }
+
+// mounted
+onMounted(() => {
+  
+  console.log('Component is mounted!')
+  
+  domains_describe()
+})
+
+const domains_describe= async ()=>{
+  let {status,data } = await axios.get('http://127.0.0.1:8081/domains/describe/records');
+  console.log("\nstatus:",status,"\ndata:\n",data)
+}
+
 const toast = () => {
   let aa1 = dprops.msg
   toastctx.value = aa1// "点击了";
@@ -101,14 +120,16 @@ const toast = () => {
 const testreq= async () =>{
   {
     let req :UserReq = {name:"hanbindsg"}
-    let { status,data } = await axios.post('https://httpbin.org/post?id=1&name=haha',req);
+    let { status,data } = await axios.post('http://127.0.0.1:8081/post?id=1&name=haha',req);
     console.log("\nstatus:",status,"\ndata:\n",data)
   }
 
   {
-    let {status,data } = await axios.post('https://httpbin.org/post?id=2&name=hb',"name=hanbin");
+    let {status,data } = await axios.post('http://127.0.0.1:8081/post?id=2&name=hb',"name=hanbin");
     console.log("\nstatus:",status,"\ndata:\n",data)
   }
+
+ 
 }
 
 const handleClick = (index:any,row:any) => {

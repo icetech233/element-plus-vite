@@ -6,3 +6,6 @@ declare module "*.vue" {
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
+
+
+// 开头的注释 是不能删除的
